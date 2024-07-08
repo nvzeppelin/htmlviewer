@@ -32,7 +32,7 @@
 
 
             
-            fetch(input.value, {headers: headers).then(res => res.text().then(text=> {
+            fetch(input.value, {headers: headers}).then(res => res.text().then(text=> {
                 var uri = "data:text/html," + encodeURIComponent(text);
                 window.open(uri)
             }))
