@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .row {
+            display:flex;
+            flex-direction: row;
+        }
+    </style>
+    <script>
+        var button = document.querySelector("#open")
+        var input = document.querySelector("#url")
+
+        function Open() {
+            fetch(input.value).then(res => res.text().then(text=> {
+                var uri = "data:text/html," + encodeURIComponent(text);
+                window.open(uri)
+            }))
+        }
+
+        button.onclick = Open;
+
+    </script>
+</head>
+<body>
+    <div class="row">
+        <label for="url">HTML url:</label>
+
+<input type="text" id="url" name="url"/>
+<button id="open">Open</button>
+    </div>
+</body>
+</html>
