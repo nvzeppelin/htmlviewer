@@ -7,6 +7,15 @@
             flex-direction: row;
         }
     </style>
+    
+</head>
+<body>
+    <div class="row">
+        <label for="url">HTML url:</label>
+
+<input type="text" id="url" name="url"/>
+<button id="open">Open</button>
+    </div>
     <script>
         var button = document.querySelector("#open")
         var input = document.querySelector("#url")
@@ -21,13 +30,5 @@
         button.onclick = Open;
 
     </script>
-</head>
-<body>
-    <div class="row">
-        <label for="url">HTML url:</label>
-
-<input type="text" id="url" name="url"/>
-<button id="open">Open</button>
-    </div>
 </body>
 </html>
