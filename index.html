@@ -12,16 +12,27 @@
 <body>
     <div class="row">
         <label for="url">HTML url:</label>
-
 <input type="text" id="url" name="url"/>
+                <label for="user">uname:</label>
+<input type="text" id="user" name="user"/>
+                <label for="pass">pass:</label>
+<input type="text" id="pass" name="pass"/>
 <button id="open">Open</button>
     </div>
     <script>
         var button = document.querySelector("#open")
         var input = document.querySelector("#url")
+        var uname = document.querySelector("#user")
+        var pass = document.querySelector("#pass")
 
         function Open() {
-            fetch(input.value).then(res => res.text().then(text=> {
+            if (uname.value != "" || pass.value != "") var headers = new Headers({
+    'Authorization': `Basic ${btoa(uname.value + ':' + pass.value)}`
+})
+
+
+            
+            fetch(input.value, {headers: headers).then(res => res.text().then(text=> {
                 var uri = "data:text/html," + encodeURIComponent(text);
                 window.open(uri)
             }))
